@@ -204,7 +204,7 @@ const Products = () => {
                         {product.image ? (
                           <img
                             className="h-12 w-12 rounded-lg object-cover"
-                            src={`http://localhost:5000/uploads-home-vapor/${product.image}`}
+                            src={`http://api-inventory.isavralabel.com/home-vapor/uploads-home-vapor/${product.image}`}
                             alt={product.name}
                           />
                         ) : (

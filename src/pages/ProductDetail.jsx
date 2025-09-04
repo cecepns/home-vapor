@@ -71,7 +71,7 @@ const ProductDetail = () => {
             {/* Product Image */}
             <div className="p-8">
               <img
-                src={product.image ? `http://localhost:5000/uploads-home-vapor/${product.image}` : '/api/placeholder/500/400'}
+                src={product.image ? `http://api-inventory.isavralabel.com/home-vapor/uploads-home-vapor/${product.image}` : '/api/placeholder/500/400'}
                 alt={product.name}
                 className="w-full h-96 object-cover rounded-lg"
               />

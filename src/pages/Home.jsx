@@ -128,7 +128,7 @@ const Home = () => {
                   className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
                 >
                   <img
-                    src={product.image ? `http://localhost:5000/uploads-home-vapor/${product.image}` : '/api/placeholder/300/200'}
+                    src={product.image ? `http://api-inventory.isavralabel.com/home-vapor/uploads-home-vapor/${product.image}` : '/api/placeholder/300/200'}
                     alt={product.name}
                     className="w-full h-48 object-cover"
                   />

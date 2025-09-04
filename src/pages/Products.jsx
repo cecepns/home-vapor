@@ -170,7 +170,7 @@ const Products = () => {
                 <img
                   src={
                     product.image
-                      ? `http://localhost:5000/uploads-home-vapor/${product.image}`
+                      ? `http://api-inventory.isavralabel.com/home-vapor/uploads-home-vapor/${product.image}`
                       : "/api/placeholder/300/200"
                   }
                   alt={product.name}
