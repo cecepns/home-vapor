@@ -89,7 +89,7 @@ const Outlets = () => {
                 {/* Store Hours */}
                 <div className="mt-4 text-center">
                   <p className="text-sm text-gray-500">
-                    <strong>Jam Operasional:</strong> Sen-Ming 09:00 - 21:00
+                    <strong>Jam Operasional:</strong> 10.00-23.30 WITA
                   </p>
                 </div>
               </div>

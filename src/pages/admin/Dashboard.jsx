@@ -33,29 +33,29 @@ const Dashboard = () => {
       value: stats.totalProducts,
       icon: Package,
       color: 'bg-blue-500',
-      change: '+12%'
+      // change: '+12%'
     },
     {
       title: 'Categories',
       value: stats.totalCategories,
       icon: Tag,
       color: 'bg-green-500',
-      change: '+5%'
+      // change: '+5%'
     },
-    {
-      title: 'Low Stock Alert',
-      value: stats.lowStockProducts,
-      icon: TrendingUp,
-      color: 'bg-yellow-500',
-      change: '-8%'
-    },
-    {
-      title: 'Total Inventory Value',
-      value: formatRupiahWithPrefix(stats.totalValue || 0),
-      icon: ShoppingBag,
-      color: 'bg-purple-500',
-      change: '+15%'
-    }
+    // {
+    //   title: 'Low Stock Alert',
+    //   value: stats.lowStockProducts,
+    //   icon: TrendingUp,
+    //   color: 'bg-yellow-500',
+    //   change: '-8%'
+    // },
+    // {
+    //   title: 'Total Inventory Value',
+    //   value: formatRupiahWithPrefix(stats.totalValue || 0),
+    //   icon: ShoppingBag,
+    //   color: 'bg-purple-500',
+    //   change: '+15%'
+    // }
   ];
 
   if (loading) {
@@ -91,7 +91,7 @@ const Dashboard = () => {
               <div>
                 <p className="text-sm font-medium text-gray-600 mb-1">{stat.title}</p>
                 <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
-                <p className="text-sm text-green-600 mt-1">{stat.change} from last month</p>
+                {/* <p className="text-sm text-green-600 mt-1">{stat.change} from last month</p> */}
               </div>
               <div className={`${stat.color} p-3 rounded-lg`}>
                 <stat.icon className="text-white" size={24} />
@@ -104,7 +104,7 @@ const Dashboard = () => {
       {/* Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
         {/* Sales Chart */}
-        <div className="bg-white rounded-lg shadow-md p-6">
+        {/* <div className="bg-white rounded-lg shadow-md p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-semibold text-gray-900">Sales Overview</h2>
             <BarChart3 className="text-gray-400" size={20} />
@@ -112,10 +112,10 @@ const Dashboard = () => {
           <div className="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
             <p className="text-gray-500">Chart will be implemented here</p>
           </div>
-        </div>
+        </div> */}
 
         {/* Top Products */}
-        <div className="bg-white rounded-lg shadow-md p-6">
+        {/* <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold text-gray-900 mb-4">Top Products</h2>
           <div className="space-y-4">
             {[1, 2, 3, 4, 5].map((i) => (
@@ -136,11 +136,11 @@ const Dashboard = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Recent Activity */}
-      <div className="bg-white rounded-lg shadow-md p-6">
+      {/* <div className="bg-white rounded-lg shadow-md p-6">
         <h2 className="text-xl font-semibold text-gray-900 mb-4">Recent Activity</h2>
         <div className="space-y-4">
           {[
@@ -162,7 +162,7 @@ const Dashboard = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
