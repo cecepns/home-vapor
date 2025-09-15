@@ -77,7 +77,7 @@ const Login = () => {
               {loading ? 'Memproses...' : 'Masuk'}
             </button>
           </form>
-          <p className="text-xs text-gray-500 mt-4">Gunakan demo: admin / admin123</p>
+          {/* <p className="text-xs text-gray-500 mt-4">Gunakan demo: admin / admin123</p> */}
         </div>
       </div>
     </div>
