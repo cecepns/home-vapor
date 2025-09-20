@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { Award, Users, Heart, Target, CheckCircle } from 'lucide-react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import Logo from '../assets/logo.jpeg'
+import { useEffect } from "react";
+import { Award, Users, Heart, Target, CheckCircle } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Logo from "../assets/logo.jpeg";
 
 const About = () => {
   useEffect(() => {
@@ -15,33 +15,37 @@ const About = () => {
   const values = [
     {
       icon: Award,
-      title: 'Kualitas Utama',
-      description: 'Kami berkomitmen menyediakan produk vapor berkualitas tinggi dari brand terpercaya dunia.'
+      title: "Kualitas Utama",
+      description:
+        "Kami berkomitmen menyediakan produk vapor berkualitas tinggi dari brand terpercaya dunia.",
     },
     {
       icon: Users,
-      title: 'Fokus Pelanggan',
-      description: 'Kepuasan pelanggan adalah prioritas utama kami dalam setiap layanan yang diberikan.'
+      title: "Fokus Pelanggan",
+      description:
+        "Kepuasan pelanggan adalah prioritas utama kami dalam setiap layanan yang diberikan.",
     },
     {
       icon: Heart,
-      title: 'Passion',
-      description: 'Kami memiliki passion yang tinggi dalam industri vapor dan terus berinovasi.'
+      title: "Passion",
+      description:
+        "Kami memiliki passion yang tinggi dalam industri vapor dan terus berinovasi.",
     },
     {
       icon: Target,
-      title: 'Keunggulan',
-      description: 'Selalu berusaha memberikan yang terbaik dalam produk, layanan, dan pengalaman berbelanja.'
-    }
+      title: "Keunggulan",
+      description:
+        "Selalu berusaha memberikan yang terbaik dalam produk, layanan, dan pengalaman berbelanja.",
+    },
   ];
 
   const achievements = [
-    '5+ Tahun Pengalaman',
-    '1000+ Pelanggan Puas',
-    '5 Lokasi Toko',
-    '100+ Varian Produk',
-    'Dealer Resmi',
-    'Dukungan Pelanggan 24/7'
+    "5+ Tahun Pengalaman",
+    "1000+ Pelanggan Puas",
+    "5 Lokasi Toko",
+    "100+ Varian Produk",
+    "Dealer Resmi",
+    "Dukungan Pelanggan 24/7",
   ];
 
   return (
@@ -50,10 +54,13 @@ const About = () => {
       <div className="bg-gradient-to-r from-blue-600 to-purple-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center" data-aos="fade-up">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Tentang Home Vapor</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Tentang Home Vapor
+            </h1>
             <p className="text-xl max-w-3xl mx-auto">
-              Toko vapor terpercaya di Bontang yang telah melayani ribuan pelanggan 
-              dengan produk berkualitas tinggi dan pelayanan terbaik sejak 2019.
+              Toko vapor terpercaya di Bontang yang telah melayani ribuan
+              pelanggan dengan produk berkualitas tinggi dan pelayanan terbaik
+              sejak 2019.
             </p>
           </div>
         </div>
@@ -63,21 +70,24 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div data-aos="fade-right">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Cerita Kami</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Cerita Kami
+            </h2>
             <div className="space-y-4 text-gray-600">
               <p>
-                Home Vapor didirikan pada tahun 2019 dengan visi menjadi toko vapor terdepan 
-                di Bontang. Berawal dari satu toko kecil, kami kini telah berkembang menjadi 
-                jaringan toko dengan 5 outlet yang tersebar di berbagai lokasi strategis.
+                Home Vapor didirikan pada tahun 2019 dengan visi menjadi toko
+                vapor terdepan di Bontang. Berawal dari satu toko kecil, kami
+                kini telah berkembang menjadi jaringan toko dengan 5 outlet yang
+                tersebar di berbagai lokasi strategis.
               </p>
               <p>
-                Komitmen kami adalah menyediakan produk vapor berkualitas tinggi dengan 
-                harga yang kompetitif, didukung oleh tim yang berpengalaman dan passionate 
-                dalam industri vapor.
+                Komitmen kami adalah menyediakan produk vapor berkualitas tinggi
+                dengan harga yang kompetitif, didukung oleh tim yang
+                berpengalaman dan passionate dalam industri vapor.
               </p>
               <p>
-                Kami bangga telah melayani lebih dari 1000 pelanggan dan terus berinovasi 
-                untuk memberikan pengalaman berbelanja yang terbaik.
+                Kami bangga telah melayani lebih dari 1000 pelanggan dan terus
+                berinovasi untuk memberikan pengalaman berbelanja yang terbaik.
               </p>
             </div>
           </div>
@@ -95,9 +105,12 @@ const About = () => {
       <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12" data-aos="fade-up">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Nilai-Nilai Kami</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Nilai-Nilai Kami
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Nilai-nilai yang menjadi fondasi dalam setiap langkah perjalanan Home Vapor
+              Nilai-nilai yang menjadi fondasi dalam setiap langkah perjalanan
+              Home Vapor
             </p>
           </div>
 
@@ -112,7 +125,9 @@ const About = () => {
                 <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <value.icon className="text-blue-600" size={24} />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {value.title}
+                </h3>
                 <p className="text-gray-600">{value.description}</p>
               </div>
             ))}
@@ -124,7 +139,9 @@ const About = () => {
       <div className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12" data-aos="fade-up">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Pencapaian Kami</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Pencapaian Kami
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Pencapaian yang membanggakan dalam perjalanan Home Vapor
             </p>
@@ -138,7 +155,10 @@ const About = () => {
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >
-                <CheckCircle className="text-green-500 flex-shrink-0" size={24} />
+                <CheckCircle
+                  className="text-green-500 flex-shrink-0"
+                  size={24}
+                />
                 <span className="text-gray-900 font-medium">{achievement}</span>
               </div>
             ))}
@@ -151,23 +171,43 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div data-aos="fade-right">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Misi Kami</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Misi Kami
+              </h2>
               <div className="bg-blue-50 rounded-lg p-6">
                 <p className="text-gray-700 leading-relaxed">
-                  Menyediakan produk vapor berkualitas tinggi dengan pelayanan terbaik, 
-                  membantu pelanggan menemukan produk yang sesuai dengan kebutuhan mereka, 
-                  dan membangun komunitas vapor yang positif di Bontang.
+                  Memberikan pelayanan terbaik dengan ramah, responsif, dan
+                  profesional untuk setiap konsumen.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Menyediakan produk berkualitas, aman, dan variatif sesuai
+                  kebutuhan konsumen.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Menjalin hubungan yang hangat dan dekat dengan konsumen,
+                  sehingga tercipta loyalitas dan kepercayaan.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Mengutamakan kemudahan berbelanja melalui layanan offline
+                  maupun online yang nyaman.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Terus berinovasi dalam menghadirkan promo, layanan, dan produk
+                  terbaru agar konsumen selalu mendapatkan pengalaman berbeda.
                 </p>
               </div>
             </div>
 
             <div data-aos="fade-left">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Visi Kami</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Visi Kami
+              </h2>
               <div className="bg-purple-50 rounded-lg p-6">
                 <p className="text-gray-700 leading-relaxed">
-                  Menjadi toko vapor terdepan dan terpercaya di Kalimantan Timur, 
-                  dikenal karena kualitas produk, pelayanan prima, dan kontribusi 
-                  positif terhadap komunitas vapor Indonesia.
+                  Menjadi vape store terpercaya yang lebih dekat dengan
+                  konsumen, menghadirkan pengalaman belanja terbaik, serta
+                  menjadi ritel pilihan utama dengan pelayanan yang ramah,
+                  cepat, dan berkualitas.
                 </p>
               </div>
             </div>
