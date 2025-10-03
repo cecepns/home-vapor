@@ -166,14 +166,27 @@ app.get('/api/products', (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 6;
   const category = req.query.category || '';
+  const search = req.query.search || '';
   const offset = (page - 1) * limit;
   
   let whereClause = '';
   let queryParams = [];
+  let conditions = [];
   
   if (category) {
-    whereClause = 'WHERE p.category_id = ?';
+    conditions.push('p.category_id = ?');
     queryParams.push(category);
+  }
+  
+  if (search) {
+    // Use case-insensitive search with word boundaries for more precise matching
+    conditions.push('(LOWER(p.name) LIKE ? OR LOWER(p.description) LIKE ?)');
+    const searchTerm = search.toLowerCase();
+    queryParams.push(`%${searchTerm}%`, `%${searchTerm}%`);
+  }
+  
+  if (conditions.length > 0) {
+    whereClause = 'WHERE ' + conditions.join(' AND ');
   }
   
   // Get total count

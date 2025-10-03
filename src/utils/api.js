@@ -18,9 +18,10 @@ export const api = {
   }).then(res => res.json()),
 
   // Products
-  getProducts: (page = 1, limit = 6, category = '') => {
+  getProducts: (page = 1, limit = 6, category = '', search = '') => {
     const params = new URLSearchParams({ page, limit });
     if (category) params.append('category', category);
+    if (search) params.append('search', search);
     return fetch(`${API_BASE_URL}/products?${params}`).then(res => res.json());
   },
   getProduct: (id) => fetch(`${API_BASE_URL}/products/${id}`).then(res => res.json()),

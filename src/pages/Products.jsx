@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 import AOS from "aos";
@@ -15,28 +15,10 @@ const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 120,
-      delay: 0,
-    });
-    fetchProducts();
-    fetchCategories();
-  }, [currentPage, selectedCategory]);
-
-  useEffect(() => {
-    // Reset to first page when search term changes
-    if (searchTerm) {
-      setCurrentPage(1);
-    }
-  }, [searchTerm]);
-
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await api.getProducts(currentPage, 6, selectedCategory);
+      const response = await api.getProducts(currentPage, 6, selectedCategory, searchTerm);
       setProducts(response.products || []);
       setTotalPages(response.totalPages || 1);
 
@@ -49,7 +31,26 @@ const Products = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [currentPage, selectedCategory, searchTerm]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 120,
+      delay: 0,
+    });
+  }, []);
+
+  useEffect(() => {
+    fetchProducts();
+    fetchCategories();
+  }, [fetchProducts]);
+
+  useEffect(() => {
+    // Reset to first page when search term changes
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   const fetchCategories = async () => {
     try {
@@ -70,9 +71,57 @@ const Products = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Smart pagination with ellipsis
+  const renderPagination = () => {
+    if (totalPages <= 1) return null;
+    
+    const maxVisiblePages = 7; // Show max 7 page numbers
+    const sidePages = 2; // Pages to show on each side of current page
+    
+    if (totalPages <= maxVisiblePages) {
+      // Show all pages if total is <= maxVisiblePages
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+    
+    const pages = [];
+    
+    // Always show first page
+    pages.push(1);
+    
+    if (currentPage <= sidePages + 3) {
+      // Current page is near the beginning
+      for (let i = 2; i <= Math.min(maxVisiblePages - 1, totalPages - 1); i++) {
+        pages.push(i);
+      }
+      if (totalPages > maxVisiblePages - 1) {
+        pages.push('...');
+      }
+    } else if (currentPage >= totalPages - sidePages - 2) {
+      // Current page is near the end
+      if (totalPages > maxVisiblePages - 1) {
+        pages.push('...');
+      }
+      for (let i = Math.max(totalPages - maxVisiblePages + 2, 2); i <= totalPages - 1; i++) {
+        pages.push(i);
+      }
+    } else {
+      // Current page is in the middle
+      pages.push('...');
+      for (let i = currentPage - sidePages; i <= currentPage + sidePages; i++) {
+        if (i > 1 && i < totalPages) {
+          pages.push(i);
+        }
+      }
+      pages.push('...');
+    }
+    
+    // Always show last page (if not already shown)
+    if (totalPages > 1) {
+      pages.push(totalPages);
+    }
+    
+    return pages;
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -148,7 +197,7 @@ const Products = () => {
               </div>
             ))}
           </div>
-        ) : filteredProducts.length === 0 ? (
+        ) : products.length === 0 ? (
           <div className="text-center py-12" data-aos="fade-up">
             <div className="text-gray-400 mb-4">
               <Search size={48} className="mx-auto" />
@@ -162,7 +211,7 @@ const Products = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map((product) => (
+            {products.map((product) => (
               <div
                 key={product.id}
                 className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
@@ -211,7 +260,7 @@ const Products = () => {
         )}
 
         {/* Pagination */}
-        {!loading && filteredProducts.length > 0 && totalPages > 1 && (
+        {!loading && products.length > 0 && totalPages > 1 && (
           <div
             className="flex justify-center items-center space-x-2 mt-12"
             data-aos="fade-up"
@@ -224,18 +273,24 @@ const Products = () => {
               <ChevronLeft size={20} />
             </button>
 
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-              <button
-                key={page}
-                onClick={() => handlePageChange(page)}
-                className={`px-4 py-2 rounded-lg ${
-                  currentPage === page
-                    ? "bg-blue-600 text-white"
-                    : "border border-gray-300 hover:bg-gray-50"
-                }`}
-              >
-                {page}
-              </button>
+            {renderPagination()?.map((page, index) => (
+              page === '...' ? (
+                <span key={`ellipsis-${index}`} className="px-2 py-2 text-gray-500">
+                  ...
+                </span>
+              ) : (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  className={`px-4 py-2 rounded-lg ${
+                    currentPage === page
+                      ? "bg-blue-600 text-white"
+                      : "border border-gray-300 hover:bg-gray-50"
+                  }`}
+                >
+                  {page}
+                </button>
+              )
             ))}
 
             <button

@@ -60,7 +60,7 @@ const About = () => {
             <p className="text-xl max-w-3xl mx-auto">
               Toko vapor terpercaya di Bontang yang telah melayani ribuan
               pelanggan dengan produk berkualitas tinggi dan pelayanan terbaik
-              sejak 2019.
+              sejak 2018.
             </p>
           </div>
         </div>
@@ -75,7 +75,7 @@ const About = () => {
             </h2>
             <div className="space-y-4 text-gray-600">
               <p>
-                Home Vapor didirikan pada tahun 2019 dengan visi menjadi toko
+                Home Vapor didirikan pada tahun 2018 dengan visi menjadi toko
                 vapor terdepan di Bontang. Berawal dari satu toko kecil, kami
                 kini telah berkembang menjadi jaringan toko dengan 5 outlet yang
                 tersebar di berbagai lokasi strategis.
