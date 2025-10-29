@@ -41,7 +41,7 @@ const Home = () => {
     { icon: Users, label: 'Pelanggan Puas', value: '1000+' },
     { icon: ShoppingBag, label: 'Produk Terjual', value: '5000+' },
     { icon: Award, label: 'Tahun Pengalaman', value: '5+' },
-    { icon: Star, label: 'Rating Pelanggan', value: '4.9' },
+    // { icon: Star, label: 'Rating Pelanggan', value: '4.9' },
   ];
 
   return (
