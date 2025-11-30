@@ -21,7 +21,7 @@ const Footer = () => {
               Toko vapor terpercaya di Bontang dengan berbagai pilihan produk berkualitas tinggi. 
               Melayani dengan sepenuh hati untuk kepuasan pelanggan.
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
                 <Facebook size={20} />
               </a>
@@ -31,7 +31,7 @@ const Footer = () => {
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
                 <Twitter size={20} />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
@@ -40,22 +40,22 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-gray-300 hover:text-white transition-colors">
-                  Home
+                  Beranda
                 </Link>
               </li>
               <li>
                 <Link to="/products" className="text-gray-300 hover:text-white transition-colors">
-                  Products
+                  Produk
                 </Link>
               </li>
               <li>
                 <Link to="/outlets" className="text-gray-300 hover:text-white transition-colors">
-                  Outlets
+                  Outlet
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-gray-300 hover:text-white transition-colors">
-                  About Us
+                  Tentang Kami
                 </Link>
               </li>
             </ul>

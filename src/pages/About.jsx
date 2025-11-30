@@ -17,7 +17,7 @@ const About = () => {
       icon: Award,
       title: "Kualitas Utama",
       description:
-        "Kami berkomitmen menyediakan produk vapor berkualitas tinggi dari brand terpercaya dunia.",
+        "Kami berkomitmen menyediakan produk vapor berkualitas tinggi dari brand terpercaya.",
     },
     {
       icon: Users,
@@ -44,7 +44,7 @@ const About = () => {
     "1000+ Pelanggan Puas",
     "5 Lokasi Toko",
     "100+ Varian Produk",
-    "Dealer Resmi",
+    "Ritel Resmi",
     "Dukungan Pelanggan 24/7",
   ];
 

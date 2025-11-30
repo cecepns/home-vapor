@@ -18,7 +18,12 @@ const Products = () => {
   const fetchProducts = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await api.getProducts(currentPage, 6, selectedCategory, searchTerm);
+      const response = await api.getProducts(
+        currentPage,
+        6,
+        selectedCategory,
+        searchTerm
+      );
       setProducts(response.products || []);
       setTotalPages(response.totalPages || 1);
 
@@ -74,52 +79,56 @@ const Products = () => {
   // Smart pagination with ellipsis
   const renderPagination = () => {
     if (totalPages <= 1) return null;
-    
+
     const maxVisiblePages = 7; // Show max 7 page numbers
     const sidePages = 2; // Pages to show on each side of current page
-    
+
     if (totalPages <= maxVisiblePages) {
       // Show all pages if total is <= maxVisiblePages
       return Array.from({ length: totalPages }, (_, i) => i + 1);
     }
-    
+
     const pages = [];
-    
+
     // Always show first page
     pages.push(1);
-    
+
     if (currentPage <= sidePages + 3) {
       // Current page is near the beginning
       for (let i = 2; i <= Math.min(maxVisiblePages - 1, totalPages - 1); i++) {
         pages.push(i);
       }
       if (totalPages > maxVisiblePages - 1) {
-        pages.push('...');
+        pages.push("...");
       }
     } else if (currentPage >= totalPages - sidePages - 2) {
       // Current page is near the end
       if (totalPages > maxVisiblePages - 1) {
-        pages.push('...');
+        pages.push("...");
       }
-      for (let i = Math.max(totalPages - maxVisiblePages + 2, 2); i <= totalPages - 1; i++) {
+      for (
+        let i = Math.max(totalPages - maxVisiblePages + 2, 2);
+        i <= totalPages - 1;
+        i++
+      ) {
         pages.push(i);
       }
     } else {
       // Current page is in the middle
-      pages.push('...');
+      pages.push("...");
       for (let i = currentPage - sidePages; i <= currentPage + sidePages; i++) {
         if (i > 1 && i < totalPages) {
           pages.push(i);
         }
       }
-      pages.push('...');
+      pages.push("...");
     }
-    
+
     // Always show last page (if not already shown)
     if (totalPages > 1) {
       pages.push(totalPages);
     }
-    
+
     return pages;
   };
 
@@ -132,10 +141,10 @@ const Products = () => {
             className="text-3xl font-bold text-gray-900 mb-4"
             data-aos="fade-up"
           >
-            Our Products
+            Produk Kami
           </h1>
           <p className="text-gray-600" data-aos="fade-up" data-aos-delay="100">
-            Discover our wide range of quality vapor products
+            Temukan berbagai macam produk vapor berkualitas kami
           </p>
         </div>
       </div>
@@ -250,7 +259,7 @@ const Products = () => {
                       to={`/products/${product.id}`}
                       className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                     >
-                      View Details
+                      Lihat Detail
                     </Link>
                   </div>
                 </div>
@@ -273,9 +282,12 @@ const Products = () => {
               <ChevronLeft size={20} />
             </button>
 
-            {renderPagination()?.map((page, index) => (
-              page === '...' ? (
-                <span key={`ellipsis-${index}`} className="px-2 py-2 text-gray-500">
+            {renderPagination()?.map((page, index) =>
+              page === "..." ? (
+                <span
+                  key={`ellipsis-${index}`}
+                  className="px-2 py-2 text-gray-500"
+                >
                   ...
                 </span>
               ) : (
@@ -291,7 +303,7 @@ const Products = () => {
                   {page}
                 </button>
               )
-            ))}
+            )}
 
             <button
               onClick={() => handlePageChange(currentPage + 1)}

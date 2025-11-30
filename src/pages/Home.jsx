@@ -200,7 +200,7 @@ const Home = () => {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Banyak Outlet</h3>
               <p className="text-gray-600">
-                5 outlet tersebar di Bontang untuk kemudahan akses pelanggan
+              4 outlet tersebar di Bontang dan 1 di Marangkayu untuk kemudahan akses pelanggan
               </p>
             </div>
           </div>
